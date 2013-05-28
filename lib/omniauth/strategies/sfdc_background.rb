@@ -21,8 +21,21 @@ module OmniAuth
         }
       end
 
+      credentials do
+        {
+          username: username,
+          password: password,
+          instance_url: options.host,
+        }
+      end
+
       extra do
-        { raw_info: identity }
+        {
+          user_id: identity.Id,
+          instance_url: options.host,
+          raw_info: identity,
+          client: client,
+        }
       end
 
       option :fields, [:username, :password]
