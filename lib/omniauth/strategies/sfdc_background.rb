@@ -82,10 +82,10 @@ module OmniAuth
       end
 
       def client
-        ::Restforce.new host: options.host,
-                        username: username, password: password,
-                        client_id: options.consumer_key,
-                        client_secret: options.consumer_secret
+        @client ||= ::Restforce.new host: options.host,
+                                    username: username, password: password,
+                                    client_id: options.consumer_key,
+                                    client_secret: options.consumer_secret
       end
 
       def auth_info
