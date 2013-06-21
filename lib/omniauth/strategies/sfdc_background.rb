@@ -25,14 +25,15 @@ module OmniAuth
         {
           username: username,
           password: password,
-          instance_url: options.host,
+          oauth_token: client_options[:oauth_token],
+          instance_url: client_options[:instance_url],
         }
       end
 
       extra do
         {
           user_id: identity.Id,
-          instance_url: options.host,
+          instance_url: client_options[:instance_url],
           raw_info: identity,
           client: client,
         }
@@ -79,6 +80,11 @@ module OmniAuth
 
       def password
         request.params[options.params.password]
+      end
+
+      def client_options
+        return fail!(:invalid_credentials) unless identity
+        client.options
       end
 
       def client
