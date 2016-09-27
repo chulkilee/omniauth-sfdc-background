@@ -17,7 +17,7 @@ module OmniAuth
           email: identity.Email,
           first_name: identity.FirstName,
           last_name: identity.LastName,
-          image: identity.SmallPhotoUrl,
+          image: identity.SmallPhotoUrl
         }
       end
 
@@ -26,7 +26,7 @@ module OmniAuth
           username: username,
           password: password,
           oauth_token: client_options[:oauth_token],
-          instance_url: client_options[:instance_url],
+          instance_url: client_options[:instance_url]
         }
       end
 
@@ -35,12 +35,12 @@ module OmniAuth
           user_id: identity.Id,
           instance_url: client_options[:instance_url],
           raw_info: identity,
-          client: client,
+          client: client
         }
       end
 
       option :fields, [:username, :password]
-      option :params, { username: 'username', password: 'password' }
+      option :params, username: 'username', password: 'password'
       option :host, 'login.salesforce.com'
       option :name, 'sfdc_background'
 
