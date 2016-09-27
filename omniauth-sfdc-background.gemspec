@@ -13,9 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/chulkilee/omniauth-sfdc-background'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.files         = Dir['lib/**/*']
   spec.require_paths = %w[lib]
 
   spec.add_runtime_dependency 'omniauth', '>= 1.1'
