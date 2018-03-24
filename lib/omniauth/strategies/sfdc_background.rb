@@ -89,7 +89,9 @@ module OmniAuth
 
       def client
         @client ||= ::Restforce.new host: options.host,
-                                    username: username, password: password,
+                                    username: username,
+                                    password: password,
+                                    security_token: '',
                                     client_id: options.consumer_key,
                                     client_secret: options.consumer_secret
       end
